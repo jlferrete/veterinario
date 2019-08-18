@@ -30,8 +30,8 @@ h2 {
 
 
 .list-cards {
-    height: 700px;
-    overflow: scroll;
+    height: 600px;
+    overflow: auto;
 }
 .card {
     margin-bottom: 20px;
