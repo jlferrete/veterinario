@@ -44,6 +44,43 @@ const formValidation = (form, formElements) => {
     countValidation === 7 ? addVisit(formElements) : null;
 }
 
+const addVisit = (formElements) => {
+    const { name, lastname, date, time, typeAnimal, nameAnimal, observation } = formElements;
+
+    const htmlText =
+        `<div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                ${name} ${lastname}
+                <span class="date">${date} - ${time}</span>
+            </h5>
+            <p class="card-text">
+                <span class="bold">Tipo del Animal: </span> ${typeAnimal}
+            </p>
+            <p class="card-text">
+                <span class="bold">Nombre del Animal: </span> ${nameAnimal}
+            </p>
+            <p class="card-text">
+                <span class="bold">Sintomas</span>
+                <br />
+                ${observation}
+            </p>
+            <button class="btn btn-danger btn-delete" onclick="removeVisit(event)">Eliminar Cita</button>
+        </div>
+    </div>`;
+
+    let allVisits = localStorage.getItem(KEY_VISITS);
+    if (allVisits == null) {
+        allVisits = htmlText;
+    } else {
+        allVisits = allVisits + htmlText;
+    }
+    localStorage.setItem(KEY_VISITS, allVisits);
+
+    document.getElementsByClassName('list-cards')[0].innerHTML = localStorage.getItem(KEY_VISITS);
+    clearForm();
+}
+
 
 const inputValidation = (inputValue, inputName, inputErrorClass) => {
     inputName.classList.remove('is-invalid', 'is-valid');
