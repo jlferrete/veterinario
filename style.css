@@ -1,0 +1,63 @@
+body {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 25%, rgba(0,212,255,1) 100%);
+}
+
+h1, h2 {
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+h2 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.block-form,
+.block-list {
+    text-align: center;
+}
+
+.form-row {
+    margin-bottom: 30px;
+}
+.btn-send-form {
+    margin-top: 30px;
+}
+
+
+.list-cards {
+    height: 700px;
+    overflow: scroll;
+}
+.card {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.date {
+    float: right;
+    font-size: 12px;
+    font-weight: 100;
+    color: grey;
+}
+.btn-delete {
+    float: right;
+    padding: 2px 10px;
+}
+.bold {
+    font-weight: bold;
+}
+
+
+.error {
+    color: #f00;
+}
+.general-error {
+    margin-top: 20px;
+}
+.invalid-feedback {
+    text-align: left;
+}
