@@ -1,12 +1,24 @@
+const KEY_VISITS = "visits";
 
+document.addEventListener("DOMContentLoaded", function () {
+    loadVisits();
+})
 
+const loadVisits = () => {
+    const allVisits = localStorage.getItem(KEY_VISITS);
+
+    if (allVisits == "" || allVisits == null) {
+        document.getElementsByClassName('list-cards')[0].innerHTML = "<div class='card text-center'>HOY HAY CITAS</div>";
+    } else {
+        document.getElementsByClassName('list-cards')[0].innerHTML = allVisits;
+    }
+}
 
 const sendForm = () => {
     event.preventDefault();
     const form = document.forms.formAdd;
 
     let formElements = {};
-
     for (let i = 0; i < form.length; i++) {
         if (i === 7) { continue; }
         const key = form[i].name;
@@ -17,9 +29,7 @@ const sendForm = () => {
             [key]: value
         }
     }
-    console.log(formElements);
     formValidation(form, formElements);
-
 }
 
 const formValidation = (form, formElements) => {
@@ -81,7 +91,6 @@ const addVisit = (formElements) => {
     clearForm();
 }
 
-
 const inputValidation = (inputValue, inputName, inputErrorClass) => {
     inputName.classList.remove('is-invalid', 'is-valid');
     document.getElementsByClassName(inputErrorClass)[0].style.display = "none";
@@ -96,7 +105,25 @@ const inputValidation = (inputValue, inputName, inputErrorClass) => {
     }
 }
 
+const removeVisit = (e) => {
+    e.target.parentNode.parentNode.remove();
+
+    const listVisitsHtml = document.getElementsByClassName('list-cards')[0].innerHTML;
+    localStorage.setItem(KEY_VISITS, listVisitsHtml);
+
+    loadVisits();
+}
 
 const clearErrors = () => {
     document.getElementsByClassName('general-error')[0].innerHTML = "";
+}
+
+const clearForm = () => {
+    document.getElementById("form-add-visit").reset();
+
+    const formElements = document.getElementsByClassName("form-control");
+
+    for (let i = 0; i < formElements.length; i++) {
+        document.getElementsByClassName('form-control')[i].classList.remove('is-invalid', 'is-valid');
+    }
 }
