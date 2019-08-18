@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Citas Veterinarias - JlFerrete</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./scripts.js"></script>
+</head>
+
+<body>
+    <h1>CITAS VETERINARIAS</h1>
+
+    <div class="container block-app">
+        <div class="row">
+            <div class="col-6 block-form">
+                <h2>NUEVA CITA</h2>
+
+                <form name="formAdd" id="form-add-visit" onsubmit="sendForm()">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre" />
+                            <div class="invalid-feedback error-name">El nombre es obligatorio.</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="lastname" class="form-control" placeholder="Apellidos" />
+                            <div class="invalid-feedback error-lastname">Los apellidos son obligatorio.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="date" name="date" class="form-control" />
+                            <div class="invalid-feedback error-date">La fecha es obligatoria.</div>
+                        </div>
+                        <div class="col">
+                            <input type="time" name="time" class="form-control" />
+                            <div class="invalid-feedback error-time">La hora es obligatoria.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <select name="typeAnimal" class="form-control">
+                                <option selected value="">Seleciona un tipo de animal...</option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Pez">Pez</option>
+                                <option value="Cerdo">Cerdo</option>
+                            </select>
+                            <div class="invalid-feedback error-typeAnimal">Seleciona un tipo de animal.</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="nameAnimal" class="form-control" placeholder="Nombre del animal" />
+                            <div class="invalid-feedback error-nameAnimal">El nombre del animal es obligatorio.</div>
+                        </div>
+                    </div>
+
+                    <textarea name="observation" class="form-control" row="4"
+                        placeholder="Explica el motivo de su cita."></textarea>
+                    <div class="invalid-feedback error-observation">La observacion es obligatoria.</div>
+                    <button type="submit" class="btn btn-success btn-block btn-send-form">CREAR CITA</button>
+                </form>
+
+                <p class="error general-error"></p>
+            </div>
+
+            <div class="col-6 block-list">
+                <h2>LISTA DE CITAS</h2>
+
+                <div class="list-cards">
+
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Mario Prueba Prueba
+                                <span class="date">12/08/2019 - 17:34</span>
+                            </h5>
+                            <p class="card-text">
+                                <span class="bold">Tipo del Animal: </span> Perro
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">Nombre del Animal: </span> Nala
+                            </p>
+                            <p class="card-text">
+                                <span class="bold">Sintomas</span>
+                                <br />
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse porro molestiae fugit vero
+                                quidem laudantium odio expedita pariatur ipsa voluptate dignissimos nam nihil, dolorum
+                                provident soluta corrupti? Provident, tenetur ratione?
+                            </p>
+                            <button class="btn btn-danger btn-delete">Eliminar Cita</button>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
